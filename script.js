@@ -114,7 +114,7 @@ function animate() {
     element.draw();
     element.update();
   });
-  connect();
+  if (text.length === 1) connect();
   requestAnimationFrame(animate);
 };
 
@@ -130,7 +130,7 @@ function connect() {
       let distance = hypotenouse(dx, dy);
       opacityValue = 1 - (distance / 50);
       // ctx.strokeStyle = `rgba(255,${distance % 255},${distance % 255},` + opacityValue + ')';
-      ctx.strokeStyle = 'rgba(255, 255, 255, ' + 1 + ')';
+      ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacityValue + ')';
       if (distance < 50) {
         ctx.lineWidth = 2;
         ctx.beginPath();
